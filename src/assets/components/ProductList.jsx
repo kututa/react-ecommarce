@@ -1,5 +1,6 @@
 
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { CartContext } from '../../Context';
 
 const ProductListing = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -40,6 +41,7 @@ const ProductListing = () => {
   ];
 
   const [quantity, setQuantity] = useState(1);
+  const {handleAddToCart} = useContext(CartContext)
 
   const handleViewDetails = (product) => {
     setSelectedProduct(product);
@@ -58,10 +60,6 @@ const ProductListing = () => {
     }
   };
 
-  const handleAddToCart = () => {
-    // This function is kept, but its body is removed since there's no cart to add to
-    alert("Item added to cart (simulation wait i havent put the functio to hundle this please.");
-  };
 
   if (selectedProduct) {
     return (
